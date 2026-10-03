@@ -1,0 +1,947 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1d1428">
+<meta name="apple-mobile-web-app-title" content="BeatDrop">
+<title>BeatDrop</title>
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<style>
+:root{--bg:#1d1428;--surface:#2a1f38;--line:#3b2d4d;--text:#f3eef7;--muted:#a597b5;--accent:#f5332e;--ok:#3ecf8e;--warn:#f5a524;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.4 -apple-system,BlinkMacSystemFont,system-ui,sans-serif;-webkit-text-size-adjust:100%}
+body{padding-bottom:calc(env(safe-area-inset-bottom) + 32px)}
+.top{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:calc(env(safe-area-inset-top) + 10px) 16px 10px;background:rgba(29,20,40,.94);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top h1{font-size:22px;margin:0;letter-spacing:-.01em}
+button{font:inherit;color:inherit;border:0;cursor:pointer}
+.icon{background:transparent;font-size:24px;padding:4px 8px;color:var(--muted)}
+.group{margin:22px 16px 0}
+.group h2{font-size:13px;font-weight:600;color:var(--muted);margin:0 4px 6px}
+.card{background:var(--surface);border-radius:14px;overflow:hidden}
+.row{display:flex;align-items:center;gap:12px;padding:12px 14px;border-top:1px solid var(--line);min-height:50px;position:relative}
+.row:first-child{border-top:0}
+.grow{flex:1;min-width:0}
+.sub{font-size:13px;color:var(--muted)}
+.pick{color:var(--accent);cursor:pointer}
+.pick .sub{color:var(--muted)}
+.vh{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;clip:rect(0 0 0 0)}
+input[type=text],input[type=number],input[type=datetime-local],select,textarea{width:100%;background:transparent;border:0;color:var(--text);font:inherit;font-size:16px;outline:none;padding:0}
+select{-webkit-appearance:none;appearance:none;text-align:right;color:var(--muted);width:auto}
+textarea{min-height:240px;resize:vertical;font-size:14px;line-height:1.45;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+input::placeholder{color:#7d6f8f}
+input[type=checkbox]{width:22px;height:22px;accent-color:var(--accent)}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.cover{display:block;width:100%;max-height:260px;object-fit:contain;background:#000}
+.title-preview{font-weight:600}
+details summary{cursor:pointer;color:var(--accent)}
+pre{white-space:pre-wrap;word-break:break-word;font:13px/1.45 -apple-system,system-ui,sans-serif;margin:8px 0 0;color:var(--text)}
+.primary{display:block;width:100%;padding:16px;border-radius:14px;background:var(--accent);color:#fff;font-weight:700;font-size:17px}
+.primary:disabled{opacity:.35}
+.small{background:var(--accent);color:#fff;border-radius:10px;padding:8px 12px;font-size:15px;font-weight:600;white-space:nowrap}
+.ghost{background:transparent;color:var(--accent);padding:0;font-size:16px}
+.danger{color:#ff6b66}
+.hint{font-size:13px;color:var(--muted);margin:8px 4px 0}
+.err{color:#ff6b66;font-size:14px;margin:8px 4px 0}
+.warn{color:var(--warn);font-size:14px}
+progress{width:100%;height:8px;-webkit-appearance:none;appearance:none;border:0;border-radius:4px;overflow:hidden;background:var(--line)}
+progress::-webkit-progress-bar{background:var(--line)}
+progress::-webkit-progress-value{background:var(--accent)}
+.live{display:block;width:100%;max-width:280px;border-radius:8px;margin-top:10px;background:#000}
+.result a{color:var(--accent);word-break:break-all}
+.check{font-size:14px;margin-top:2px}
+.sheet{position:fixed;inset:0;z-index:20;background:var(--bg);overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:calc(env(safe-area-inset-bottom) + 32px)}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;word-break:break-all}
+[hidden]{display:none !important}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <h1>BeatDrop</h1>
+  <button id="openSettings" class="icon" aria-label="Beállítások">⚙︎</button>
+</header>
+
+<main>
+  <section class="group">
+    <div class="card">
+      <div class="row">
+        <div class="grow">
+          <div id="authText">Nem vagy bejelentkezve</div>
+          <div class="sub" id="authSub"></div>
+        </div>
+        <button id="loginBtn" class="small">Bejelentkezés</button>
+      </div>
+    </div>
+    <p class="err" id="authErr" hidden></p>
+  </section>
+
+  <section class="group">
+    <h2>Beat</h2>
+    <div class="card">
+      <label class="row pick">
+        <span class="grow" id="audioLabel">Beat kiválasztása</span>
+        <span class="sub" id="audioDur"></span>
+        <input type="file" id="audioInput" class="vh" accept="audio/*,.wav,.mp3,.m4a,.aif,.aiff,.flac">
+      </label>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>Borító</h2>
+    <div class="card">
+      <label class="row pick">
+        <span class="grow" id="imageLabel">Kép kiválasztása</span>
+        <input type="file" id="imageInput" class="vh" accept="image/*">
+      </label>
+      <img id="coverPreview" class="cover" alt="" hidden>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>Adatok</h2>
+    <div class="card">
+      <div class="row"><input type="text" id="f_name" placeholder="Beat neve" autocomplete="off"></div>
+      <div class="row"><input type="text" id="f_artist" placeholder="Type beat előadó (pl. Lil Baby)" autocomplete="off"></div>
+      <div class="row"><input type="text" id="f_genre" placeholder="Műfaj (pl. trap)" autocomplete="off" autocapitalize="none"></div>
+      <div class="row"><input type="text" id="f_bpm" placeholder="BPM" inputmode="numeric" autocomplete="off"></div>
+      <div class="row"><input type="text" id="f_key" placeholder="Hangnem (pl. C# minor)" autocomplete="off"></div>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>Közzététel</h2>
+    <div class="card">
+      <label class="row">
+        <span class="grow">Láthatóság</span>
+        <select id="privacy">
+          <option value="public">Nyilvános</option>
+          <option value="unlisted">Nem listázott</option>
+          <option value="private">Privát</option>
+        </select>
+      </label>
+      <label class="row">
+        <span class="grow">Időzítés</span>
+        <input type="checkbox" id="schedule" switch>
+      </label>
+      <label class="row" id="scheduleRow" hidden>
+        <span class="grow">Megjelenés</span>
+        <input type="datetime-local" id="publishAt" style="width:auto;text-align:right;color:var(--muted)">
+      </label>
+      <label class="row">
+        <span class="grow">Short is</span>
+        <input type="checkbox" id="makeShort" switch>
+      </label>
+      <label class="row" id="shortLenRow" hidden>
+        <span class="grow">Short hossza</span>
+        <select id="shortLength">
+          <option value="30">30 mp</option>
+          <option value="45" selected>45 mp</option>
+          <option value="60">60 mp</option>
+        </select>
+      </label>
+      <div class="row" id="shortStartRow" hidden>
+        <div class="grow">
+          <div>Short kezdete: <span id="shortStartLabel">0:00</span></div>
+          <input type="range" id="shortStart" min="0" max="0" step="1" value="0">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>Előnézet</h2>
+    <div class="card">
+      <div class="row"><div class="grow title-preview" id="pvTitle"></div></div>
+      <div class="row"><details class="grow"><summary>Leírás</summary><pre id="pvDesc"></pre></details></div>
+      <div class="row"><div class="grow sub" id="pvTags"></div></div>
+    </div>
+  </section>
+
+  <section class="group">
+    <button id="uploadBtn" class="primary" disabled>Feltöltés YouTube-ra</button>
+    <p class="hint" id="uploadHint"></p>
+  </section>
+
+  <section class="group" id="statusGroup" hidden>
+    <h2>Állapot</h2>
+    <div class="card">
+      <div class="row">
+        <div class="grow">
+          <div id="statusText"></div>
+          <progress id="progress" max="1" value="0" hidden></progress>
+          <div id="liveBox"></div>
+          <div class="err" id="runErr" hidden></div>
+          <div id="warnings"></div>
+        </div>
+      </div>
+      <div id="results"></div>
+    </div>
+  </section>
+</main>
+
+<div id="settings" class="sheet" hidden>
+  <header class="top">
+    <h1>Beállítások</h1>
+    <button id="closeSettings" class="ghost">Kész</button>
+  </header>
+
+  <section class="group">
+    <h2>Google</h2>
+    <div class="card">
+      <div class="row"><input type="text" id="s_clientID" placeholder="Client ID (…apps.googleusercontent.com)" autocapitalize="none" autocomplete="off" spellcheck="false"></div>
+      <div class="row">
+        <div class="grow"><div class="sub">Authorized JavaScript origin</div><div class="mono" id="s_origin"></div></div>
+        <button class="ghost" data-copy="s_origin">Másolás</button>
+      </div>
+      <div class="row">
+        <div class="grow"><div class="sub">Authorized redirect URI</div><div class="mono" id="s_redirect"></div></div>
+        <button class="ghost" data-copy="s_redirect">Másolás</button>
+      </div>
+      <div class="row">
+        <div class="grow" id="s_authText">Nem vagy bejelentkezve</div>
+        <button id="s_login" class="small">Bejelentkezés</button>
+        <button id="s_logout" class="ghost danger" hidden>Kijelentkezés</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>Lejátszási lista</h2>
+    <div class="card">
+      <label class="row">
+        <span class="grow">Lista</span>
+        <select id="s_playlist"><option value="">Nincs</option></select>
+      </label>
+      <div class="row"><button id="s_loadPlaylists" class="ghost">Listák frissítése</button></div>
+    </div>
+    <p class="err" id="s_playlistErr" hidden></p>
+  </section>
+
+  <section class="group">
+    <h2>Cím</h2>
+    <div class="card"><div class="row"><input type="text" id="s_title" autocapitalize="none" spellcheck="false"></div></div>
+  </section>
+
+  <section class="group">
+    <h2>Short cím</h2>
+    <div class="card"><div class="row"><input type="text" id="s_shortTitle" autocapitalize="none" spellcheck="false"></div></div>
+  </section>
+
+  <section class="group">
+    <h2>Leírás</h2>
+    <div class="card"><div class="row"><textarea id="s_description" autocapitalize="none" spellcheck="false"></textarea></div></div>
+    <p class="hint">Változók: {name} {artist} {genre} {bpm} {key} {year}. A #{artist} és #{genre} szóköz nélkül, kisbetűvel kerül be hashtagként.</p>
+  </section>
+
+  <section class="group">
+    <h2>Tagek</h2>
+    <div class="card"><div class="row"><textarea id="s_tags" style="min-height:150px" autocapitalize="none" spellcheck="false"></textarea></div></div>
+    <p class="hint">Vesszővel elválasztva. Ami 500 karakter fölé menne, azt hátulról levágja.</p>
+  </section>
+
+  <section class="group">
+    <div class="card"><div class="row"><button id="s_reset" class="ghost danger">Sablonok visszaállítása</button></div></div>
+  </section>
+</div>
+
+<script>
+'use strict';
+
+// ---------- Defaults & storage ----------
+const DEFAULTS = {
+  title: '[FREE] {artist} Type Beat - "{name}" | prod. bbanyai',
+  shortTitle: '{artist} Type Beat - "{name}" #shorts',
+  description: `{artist} Type Beat - "{name}"
+prod. bbanyai
+
+BPM: {bpm} | Key: {key}
+
+🆓 FREE FOR NON-PROFIT USE ONLY
+You must credit me: (prod. bbanyai)
+Tag me when you post: @bbanyai
+
+📩 For profit use, leases, exclusives or collabs, hit me up in my Instagram DMs: @bbanyai
+
+#{artist}typebeat #typebeat #freebeat #{genre}beat #prodbbanyai`,
+  tags: '{artist} type beat, free {artist} type beat, {artist} type beat free, {artist} instrumental, {artist} type beat {year}, type beat, free type beat, free beat, {genre} type beat, free {genre} type beat, {genre} instrumental, free for non profit, free beat no copyright, prod bbanyai, bbanyai',
+  genre: 'trap'
+};
+const SCOPE = 'https://www.googleapis.com/auth/youtube';
+const YT = 'https://www.googleapis.com/youtube/v3/';
+const UP = 'https://www.googleapis.com/upload/youtube/v3/';
+
+function safeJSON(s) { try { return JSON.parse(s); } catch (e) { return null; } }
+function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+function lsDel(k) { try { localStorage.removeItem(k); } catch (e) {} }
+
+const S = Object.assign({
+  clientID: '', title: DEFAULTS.title, shortTitle: DEFAULTS.shortTitle,
+  description: DEFAULTS.description, tags: DEFAULTS.tags,
+  playlistID: '', playlistTitle: '', privacy: 'public', genre: DEFAULTS.genre
+}, safeJSON(lsGet('bd.settings')) || {});
+function saveSettings() { lsSet('bd.settings', JSON.stringify(S)); }
+
+const idb = {
+  db: null,
+  open() {
+    if (this.db) return Promise.resolve(this.db);
+    return new Promise((res, rej) => {
+      const r = indexedDB.open('beatdrop', 1);
+      r.onupgradeneeded = () => r.result.createObjectStore('kv');
+      r.onsuccess = () => { this.db = r.result; res(r.result); };
+      r.onerror = () => rej(r.error);
+    });
+  },
+  async get(k) {
+    const db = await this.open();
+    return new Promise((res, rej) => {
+      const r = db.transaction('kv').objectStore('kv').get(k);
+      r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error);
+    });
+  },
+  async set(k, v) {
+    const db = await this.open();
+    return new Promise((res, rej) => {
+      const tx = db.transaction('kv', 'readwrite');
+      tx.objectStore('kv').put(v, k);
+      tx.oncomplete = () => res(); tx.onerror = () => rej(tx.error);
+    });
+  }
+};
+
+// ---------- Template engine ----------
+function values(info) {
+  const t = s => (s || '').trim();
+  return { name: t(info.name), artist: t(info.artist), genre: t(info.genre), bpm: t(info.bpm), key: t(info.key), year: String(new Date().getFullYear()) };
+}
+function hashtagForm(s) { return s.toLowerCase().replace(/[^\p{L}\p{N}]/gu, ''); }
+function fill(tpl, v) {
+  let out = tpl;
+  for (const [k, x] of Object.entries(v)) out = out.split('#{' + k + '}').join('#' + hashtagForm(x));
+  for (const [k, x] of Object.entries(v)) out = out.split('{' + k + '}').join(x);
+  return out;
+}
+const strip = s => s.replace(/[<>]/g, '');
+function cleanTitle(s) { return Array.from(strip(s).split(/\s+/).filter(Boolean).join(' ')).slice(0, 100).join(''); }
+function cleanDescription(s) {
+  let chars = Array.from(strip(s).trim());
+  const enc = new TextEncoder();
+  while (enc.encode(chars.join('')).length > 5000) chars = chars.slice(0, -50);
+  return chars.join('');
+}
+const tagCost = t => Array.from(t).length + (t.includes(' ') ? 2 : 0);
+function cleanTags(s) {
+  const seen = new Set(), out = [];
+  let used = 0;
+  for (const raw of s.split(',')) {
+    const t = strip(raw).split(/\s+/).filter(Boolean).join(' ');
+    if (!t || Array.from(t).length > 100 || seen.has(t.toLowerCase())) continue;
+    seen.add(t.toLowerCase());
+    const cost = tagCost(t) + (out.length ? 1 : 0);
+    if (used + cost > 500) break;
+    used += cost;
+    out.push(t);
+  }
+  return out;
+}
+const tagChars = tags => tags.reduce((a, t) => a + tagCost(t), 0) + Math.max(0, tags.length - 1);
+function metadata(titleTpl, info, privacy, publishAt) {
+  const v = values(info);
+  return {
+    title: cleanTitle(fill(titleTpl, v)),
+    description: cleanDescription(fill(S.description, v)),
+    tags: cleanTags(fill(S.tags, v)),
+    privacy, publishAt
+  };
+}
+
+// ---------- Auth (Google OAuth, redirect flow) ----------
+let authError = null;
+function getAuth() {
+  const a = safeJSON(lsGet('bd.auth'));
+  return a && a.token && a.exp > Date.now() + 30000 ? a : null;
+}
+function redirectURI() { return location.origin + location.pathname; }
+function login() {
+  const id = S.clientID.trim();
+  if (!/\.apps\.googleusercontent\.com$/.test(id)) {
+    authError = 'Előbb add meg a Client ID-t a Beállításokban (a vége: .apps.googleusercontent.com).';
+    renderAuth(); openSettings(); return;
+  }
+  const state = Array.from(crypto.getRandomValues(new Uint32Array(4))).join('-');
+  lsSet('bd.oauthState', state);
+  const p = new URLSearchParams({
+    client_id: id, redirect_uri: redirectURI(), response_type: 'token',
+    scope: SCOPE, include_granted_scopes: 'true', state
+  });
+  location.assign('https://accounts.google.com/o/oauth2/v2/auth?' + p.toString());
+}
+function handleRedirect() {
+  if (!location.hash || location.hash.length < 2) return;
+  const h = new URLSearchParams(location.hash.slice(1));
+  if (!h.has('access_token') && !h.has('error')) return;
+  history.replaceState(null, '', location.pathname + location.search);
+  const expected = lsGet('bd.oauthState');
+  lsDel('bd.oauthState');
+  if (h.get('error')) { authError = 'A Google nem adott engedélyt (' + h.get('error') + ').'; return; }
+  if (!expected || h.get('state') !== expected) { authError = 'Biztonsági ellenőrzés sikertelen. Jelentkezz be újra.'; return; }
+  const secs = parseInt(h.get('expires_in') || '3600', 10);
+  lsSet('bd.auth', JSON.stringify({ token: h.get('access_token'), exp: Date.now() + secs * 1000 }));
+  lsDel('bd.channel');
+}
+function logout() {
+  lsDel('bd.auth'); lsDel('bd.channel');
+  renderAuth();
+}
+
+// ---------- YouTube API ----------
+function describeError(data, code) {
+  const err = data && data.error;
+  if (code === 401) return 'Lejárt a bejelentkezés. Jelentkezz be újra (a beat és a kép megmarad).';
+  if (!err || typeof err !== 'object') return 'YouTube hiba (' + code + ')';
+  const reason = (err.errors && err.errors[0] && err.errors[0].reason) || '';
+  if (reason === 'quotaExceeded') return 'Elfogyott a mai YouTube API kvóta (kb. 6 feltöltés/nap). Holnap újra megy.';
+  if (reason === 'uploadLimitExceeded') return 'A csatorna elérte a napi feltöltési limitet.';
+  if (reason === 'youtubeSignupRequired') return 'Ehhez a Google fiókhoz még nincs YouTube csatorna.';
+  return 'YouTube hiba (' + code + ') ' + reason + ': ' + (err.message || '');
+}
+async function gapi(url, opts = {}) {
+  const a = getAuth();
+  if (!a) throw new Error('Lejárt a bejelentkezés. Jelentkezz be újra (a beat és a kép megmarad).');
+  const res = await fetch(url, Object.assign({}, opts, { headers: Object.assign({ Authorization: 'Bearer ' + a.token }, opts.headers || {}) }));
+  const text = await res.text();
+  const data = text ? (safeJSON(text) || {}) : {};
+  if (res.status === 401) lsDel('bd.auth');
+  if (!res.ok) throw new Error(describeError(data, res.status));
+  return { data, res };
+}
+async function channelTitle() {
+  const { data } = await gapi(YT + 'channels?part=snippet&mine=true');
+  return (data.items && data.items[0] && data.items[0].snippet.title) || null;
+}
+async function playlists() {
+  const { data } = await gapi(YT + 'playlists?part=snippet&mine=true&maxResults=50');
+  return (data.items || []).map(i => ({ id: i.id, title: i.snippet.title }));
+}
+async function fetchVideo(id) {
+  const { data } = await gapi(YT + 'videos?part=snippet,status&id=' + encodeURIComponent(id));
+  const item = data.items && data.items[0];
+  if (!item) throw new Error('A feltöltött videó nem található az ellenőrzésnél.');
+  return {
+    title: item.snippet.title || '', description: item.snippet.description || '',
+    tags: item.snippet.tags || [], privacy: item.status.privacyStatus || '',
+    publishAt: item.status.publishAt || null
+  };
+}
+async function uploadVideo(blob, meta, onProgress) {
+  const status = { privacyStatus: meta.privacy, selfDeclaredMadeForKids: false, embeddable: true };
+  if (meta.publishAt) { status.privacyStatus = 'private'; status.publishAt = meta.publishAt.toISOString(); }
+  const body = {
+    snippet: { title: meta.title, description: meta.description, tags: meta.tags, categoryId: '10', defaultLanguage: 'en' },
+    status
+  };
+  const type = blob.type || 'video/mp4';
+  const { res } = await gapi(UP + 'videos?uploadType=resumable&part=snippet,status', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json; charset=UTF-8', 'X-Upload-Content-Type': type, 'X-Upload-Content-Length': String(blob.size) },
+    body: JSON.stringify(body)
+  });
+  const loc = res.headers.get('Location');
+  if (!loc) throw new Error('A YouTube nem adott feltöltési címet.');
+  const a = getAuth();
+  if (!a) throw new Error('Lejárt a bejelentkezés feltöltés közben.');
+  const data = await new Promise((resolve, reject) => {
+    const x = new XMLHttpRequest();
+    x.open('PUT', loc);
+    x.setRequestHeader('Authorization', 'Bearer ' + a.token);
+    x.setRequestHeader('Content-Type', type);
+    x.upload.onprogress = e => { if (e.lengthComputable) onProgress(e.loaded / e.total); };
+    x.onload = () => {
+      const d = safeJSON(x.responseText) || {};
+      if (x.status >= 200 && x.status < 300) resolve(d); else reject(new Error(describeError(d, x.status)));
+    };
+    x.onerror = () => reject(new Error('Hálózati hiba a feltöltés közben.'));
+    x.send(blob);
+  });
+  if (!data.id) throw new Error('A feltöltés lefutott, de nem jött vissza videó ID.');
+  return data.id;
+}
+async function setThumbnail(videoId, jpeg) {
+  await gapi(UP + 'thumbnails/set?uploadType=media&videoId=' + encodeURIComponent(videoId), {
+    method: 'POST', headers: { 'Content-Type': 'image/jpeg' }, body: jpeg
+  });
+}
+async function addToPlaylist(playlistId, videoId) {
+  await gapi(YT + 'playlistItems?part=snippet', {
+    method: 'POST', headers: { 'Content-Type': 'application/json; charset=UTF-8' },
+    body: JSON.stringify({ snippet: { playlistId, resourceId: { kind: 'youtube#video', videoId } } })
+  });
+}
+
+// ---------- Rendering ----------
+function loadImage(blob) {
+  return new Promise((res, rej) => {
+    const img = new Image();
+    img.onload = () => res(img);
+    img.onerror = () => rej(new Error('A képet nem sikerült megnyitni.'));
+    img.src = URL.createObjectURL(blob);
+  });
+}
+function compositeCanvas(img, W, H) {
+  const w = img.naturalWidth, h = img.naturalHeight;
+  const c = document.createElement('canvas'); c.width = W; c.height = H;
+  const ctx = c.getContext('2d');
+  // Blurred background: downscale hard, then upscale in two smooth steps
+  const tiny = document.createElement('canvas');
+  tiny.width = Math.max(8, Math.round(W / 40)); tiny.height = Math.max(8, Math.round(H / 40));
+  const tctx = tiny.getContext('2d');
+  const f = Math.max(tiny.width / w, tiny.height / h);
+  tctx.imageSmoothingQuality = 'high';
+  tctx.drawImage(img, (tiny.width - w * f) / 2, (tiny.height - h * f) / 2, w * f, h * f);
+  const mid = document.createElement('canvas');
+  mid.width = Math.round(W / 8); mid.height = Math.round(H / 8);
+  const mctx = mid.getContext('2d');
+  mctx.imageSmoothingQuality = 'high';
+  mctx.drawImage(tiny, 0, 0, mid.width, mid.height);
+  ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
+  ctx.drawImage(mid, 0, 0, W, H);
+  ctx.fillStyle = 'rgba(0,0,0,0.5)';
+  ctx.fillRect(0, 0, W, H);
+  const fit = Math.min(W * 0.88 / w, H * 0.88 / h);
+  const fw = w * fit, fh = h * fit;
+  ctx.drawImage(img, (W - fw) / 2, (H - fh) / 2, fw, fh);
+  return c;
+}
+function thumbnailJPEG(img) {
+  return new Promise(res => compositeCanvas(img, 1280, 720).toBlob(b => res(b), 'image/jpeg', 0.9));
+}
+function pickMime() {
+  if (typeof MediaRecorder === 'undefined') throw new Error('Ez a böngésző nem tud videót rögzíteni (iOS 17+ Safari kell).');
+  const c = ['video/mp4;codecs=avc1.640028,mp4a.40.2', 'video/mp4;codecs=avc1,mp4a.40.2', 'video/mp4', 'video/webm;codecs=vp9,opus', 'video/webm;codecs=vp8,opus', 'video/webm'];
+  for (const m of c) if (MediaRecorder.isTypeSupported(m)) return m;
+  return '';
+}
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+async function renderVideo({ ac, buffer, img, W, H, start, duration, onProgress }) {
+  const frame = compositeCanvas(img, W, H);
+  const canvas = document.createElement('canvas');
+  canvas.width = W; canvas.height = H; canvas.className = 'live';
+  const box = document.getElementById('liveBox');
+  box.replaceChildren(canvas);
+  const ctx = canvas.getContext('2d');
+  const paint = () => ctx.drawImage(frame, 0, 0);
+  paint();
+  if (!canvas.captureStream) throw new Error('Ez a böngésző nem tudja rögzíteni a vásznat.');
+  const vstream = canvas.captureStream(30);
+  const dest = ac.createMediaStreamDestination();
+  const src = ac.createBufferSource();
+  src.buffer = buffer;
+  src.connect(dest);
+  const stream = new MediaStream([...vstream.getVideoTracks(), ...dest.stream.getAudioTracks()]);
+  const mime = pickMime();
+  const rec = new MediaRecorder(stream, mime ? { mimeType: mime, videoBitsPerSecond: 2500000, audioBitsPerSecond: 256000 } : {});
+  const chunks = [];
+  rec.ondataavailable = e => { if (e.data && e.data.size) chunks.push(e.data); };
+  const stopped = new Promise(r => { rec.onstop = r; });
+  const ended = new Promise(r => { src.onended = r; });
+  if (ac.state !== 'running') await ac.resume();
+  rec.start(1000);
+  const t0 = ac.currentTime + 0.15;
+  src.start(t0, start, duration);
+  const timer = setInterval(() => {
+    paint();
+    onProgress(Math.max(0, Math.min(1, (ac.currentTime - t0) / duration)));
+  }, 100);
+  try {
+    await ended;
+  } finally {
+    clearInterval(timer);
+  }
+  await sleep(400);
+  rec.stop();
+  await stopped;
+  stream.getTracks().forEach(t => t.stop());
+  vstream.getTracks().forEach(t => t.stop());
+  src.disconnect();
+  box.replaceChildren();
+  const type = (rec.mimeType || mime || 'video/mp4').split(';')[0];
+  const blob = new Blob(chunks, { type });
+  if (!blob.size) throw new Error('A renderelés üres videót adott.');
+  return blob;
+}
+
+// ---------- State ----------
+const $ = id => document.getElementById(id);
+const draft = { audio: null, audioName: '', duration: 0, image: null };
+let running = false;
+let hiddenDuringRender = false;
+let wakeLock = null;
+
+const fields = ['name', 'artist', 'genre', 'bpm', 'key'];
+function info() {
+  const o = {};
+  for (const f of fields) o[f] = $('f_' + f).value;
+  return o;
+}
+function fmt(sec) {
+  const s = Math.round(sec || 0);
+  return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+}
+function localInputValue(d) {
+  const p = n => String(n).padStart(2, '0');
+  return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()) + 'T' + p(d.getHours()) + ':' + p(d.getMinutes());
+}
+function publishAtValue() {
+  if (!$('schedule').checked || !$('publishAt').value) return null;
+  const d = new Date($('publishAt').value);
+  return isNaN(d) ? null : d;
+}
+function saveDraftFields() {
+  const o = info();
+  o.schedule = $('schedule').checked; o.publishAt = $('publishAt').value;
+  o.makeShort = $('makeShort').checked; o.shortLength = $('shortLength').value; o.shortStart = $('shortStart').value;
+  lsSet('bd.draft', JSON.stringify(o));
+}
+
+// ---------- UI rendering ----------
+async function renderAuth() {
+  const a = getAuth();
+  const hasClient = /\.apps\.googleusercontent\.com$/.test(S.clientID.trim());
+  $('authErr').hidden = !authError;
+  $('authErr').textContent = authError || '';
+  if (a) {
+    const mins = Math.max(0, Math.round((a.exp - Date.now()) / 60000));
+    $('authText').textContent = lsGet('bd.channel') || 'Bejelentkezve';
+    $('authSub').textContent = 'Még ' + mins + ' percig érvényes';
+    $('loginBtn').textContent = 'Megújítás';
+    $('s_authText').textContent = 'Bejelentkezve' + (lsGet('bd.channel') ? ': ' + lsGet('bd.channel') : '');
+    $('s_login').hidden = true; $('s_logout').hidden = false;
+  } else {
+    $('authText').textContent = 'Nem vagy bejelentkezve';
+    $('authSub').textContent = hasClient ? 'Egy óráig marad érvényes' : 'Előbb add meg a Client ID-t a ⚙︎ alatt';
+    $('loginBtn').textContent = 'Bejelentkezés';
+    $('s_authText').textContent = 'Nem vagy bejelentkezve';
+    $('s_login').hidden = false; $('s_logout').hidden = true;
+  }
+  if (a && !lsGet('bd.channel')) {
+    try {
+      const t = await channelTitle();
+      if (t) { lsSet('bd.channel', t); $('authText').textContent = t; $('s_authText').textContent = 'Bejelentkezve: ' + t; }
+    } catch (e) { authError = e.message; $('authErr').hidden = false; $('authErr').textContent = e.message; }
+  }
+  updateUploadState();
+}
+
+function renderPreview() {
+  const m = metadata(S.title, info(), S.privacy, publishAtValue());
+  $('pvTitle').textContent = m.title || '—';
+  $('pvDesc').textContent = m.description;
+  $('pvTags').textContent = m.tags.length + ' tag, ' + tagChars(m.tags) + '/500 karakter';
+}
+
+function renderShortControls() {
+  const on = $('makeShort').checked;
+  $('shortLenRow').hidden = !on;
+  const len = Number($('shortLength').value);
+  const max = Math.max(0, Math.floor(draft.duration - len));
+  $('shortStartRow').hidden = !on || max < 1;
+  $('shortStart').max = String(max);
+  if (Number($('shortStart').value) > max) $('shortStart').value = String(max);
+  $('shortStartLabel').textContent = fmt(Number($('shortStart').value));
+  $('scheduleRow').hidden = !$('schedule').checked;
+  $('privacy').disabled = $('schedule').checked;
+}
+
+function updateUploadState() {
+  const i = info();
+  const missing = [];
+  if (!getAuth()) missing.push('bejelentkezés');
+  if (!draft.audio) missing.push('beat');
+  if (!draft.image) missing.push('borító');
+  if (!i.name.trim()) missing.push('beat neve');
+  if (!i.artist.trimStart().trim()) missing.push('előadó');
+  $('uploadBtn').disabled = running || missing.length > 0;
+  $('uploadBtn').textContent = running ? 'Folyamatban…' : 'Feltöltés YouTube-ra';
+  $('uploadHint').textContent = running
+    ? 'Ne zárd le a képernyőt és ne válts appot, amíg kész nem lesz.'
+    : (missing.length ? 'Hiányzik: ' + missing.join(', ') : 'A videó valós időben renderelődik, annyi ideig tart, mint a beat.');
+}
+
+function setStatus(text, progress) {
+  $('statusGroup').hidden = false;
+  $('statusText').textContent = text;
+  const p = $('progress');
+  if (progress == null) { p.hidden = true; } else { p.hidden = false; p.value = progress; }
+}
+function setProgress(v) { $('progress').hidden = false; $('progress').value = v; }
+function addWarning(text) {
+  const d = document.createElement('div'); d.className = 'warn'; d.textContent = '⚠️ ' + text;
+  $('warnings').appendChild(d);
+}
+function addResult(r) {
+  const row = document.createElement('div'); row.className = 'row result';
+  const g = document.createElement('div'); g.className = 'grow';
+  const a = document.createElement('a'); a.href = r.url; a.target = '_blank'; a.rel = 'noopener';
+  a.textContent = r.label + ': ' + r.url;
+  g.appendChild(a);
+  for (const c of r.checks) { const d = document.createElement('div'); d.className = 'check'; d.textContent = c; g.appendChild(d); }
+  row.appendChild(g);
+  $('results').appendChild(row);
+}
+
+// ---------- File handling ----------
+async function setAudio(blob, name, persist) {
+  draft.audio = blob; draft.audioName = name;
+  $('audioLabel').textContent = name;
+  try {
+    const AC = window.AudioContext || window.webkitAudioContext;
+    const tmp = new AC();
+    const buf = await tmp.decodeAudioData(await blob.arrayBuffer());
+    draft.duration = buf.duration;
+    tmp.close && tmp.close();
+    $('audioDur').textContent = fmt(buf.duration);
+  } catch (e) {
+    draft.duration = 0;
+    $('audioDur').textContent = 'nem olvasható';
+  }
+  if (persist) {
+    try { await idb.set('audio', { blob, name }); } catch (e) {}
+    if (!$('f_name').value.trim()) { $('f_name').value = name.replace(/\.[^.]+$/, ''); saveDraftFields(); }
+    $('shortStart').value = '0';
+  }
+  renderShortControls(); renderPreview(); updateUploadState();
+}
+async function setImage(blob, persist) {
+  draft.image = blob;
+  $('coverPreview').src = URL.createObjectURL(blob);
+  $('coverPreview').hidden = false;
+  $('imageLabel').textContent = 'Kép cseréje';
+  if (persist) { try { await idb.set('image', blob); } catch (e) {} }
+  updateUploadState();
+}
+
+// ---------- Upload flow ----------
+async function verify(id, expected, label, isShort) {
+  setStatus(label + ' ellenőrzése…', null);
+  const remote = await fetchVideo(id);
+  const checks = []; let ok = true;
+  const line = (name, pass, detail) => { checks.push((pass ? '✅ ' : '⚠️ ') + name + (detail ? ': ' + detail : '')); if (!pass) ok = false; };
+  const norm = s => s.replace(/\r\n/g, '\n').trim();
+  line('Cím', remote.title === expected.title, remote.title);
+  line('Leírás', norm(remote.description) === norm(expected.description));
+  const a = new Set(remote.tags.map(t => t.toLowerCase())), b = new Set(expected.tags.map(t => t.toLowerCase()));
+  line('Tagek', a.size === b.size && [...b].every(t => a.has(t)), remote.tags.length + '/' + expected.tags.length);
+  const expPrivacy = expected.publishAt ? 'private' : expected.privacy;
+  if (remote.privacy === expPrivacy) line('Láthatóság', true, remote.privacy);
+  else line('Láthatóság', false, remote.privacy + ' – ha privátra zárta, a Google projekt még nincs auditálva');
+  if (expected.publishAt) line('Időzítés', !!remote.publishAt, remote.publishAt || 'nincs beállítva');
+  return { label, url: isShort ? 'https://youtube.com/shorts/' + id : 'https://youtu.be/' + id, checks, ok };
+}
+
+function startUpload() {
+  if (running) return;
+  const a = getAuth();
+  if (!a) { authError = 'Jelentkezz be.'; renderAuth(); return; }
+  if (a.exp - Date.now() < 15 * 60 * 1000) {
+    authError = 'Kevesebb mint 15 perc van hátra a bejelentkezésből. Nyomd meg a Megújítás gombot (a beat és a kép megmarad).';
+    renderAuth(); window.scrollTo({ top: 0, behavior: 'smooth' }); return;
+  }
+  // AudioContext must be created inside the tap for iOS
+  const AC = window.AudioContext || window.webkitAudioContext;
+  const ac = new AC();
+  ac.resume();
+
+  const i = info();
+  const publishAt = publishAtValue();
+  const req = {
+    main: metadata(S.title, i, S.privacy, publishAt),
+    short: $('makeShort').checked ? metadata(S.shortTitle, i, S.privacy, publishAt) : null,
+    shortLength: Number($('shortLength').value),
+    shortStart: Number($('shortStart').value),
+    playlistID: S.playlistID || null
+  };
+  if (i.genre.trim()) { S.genre = i.genre.trim(); saveSettings(); }
+  run(ac, req);
+}
+
+async function run(ac, req) {
+  running = true; hiddenDuringRender = false;
+  updateUploadState();
+  $('results').replaceChildren(); $('warnings').replaceChildren();
+  $('runErr').hidden = true;
+  try { if ('wakeLock' in navigator) wakeLock = await navigator.wakeLock.request('screen'); } catch (e) {}
+  let allOk = true;
+  try {
+    setStatus('Beat beolvasása…', null);
+    const buffer = await ac.decodeAudioData(await draft.audio.arrayBuffer());
+    const img = await loadImage(draft.image);
+
+    setStatus('Videó renderelése (' + fmt(buffer.duration) + ')…', 0);
+    const mainBlob = await renderVideo({ ac, buffer, img, W: 1920, H: 1080, start: 0, duration: buffer.duration, onProgress: setProgress });
+    if (hiddenDuringRender) addWarning('Renderelés közben elhagytad az appot, a videóban lehet csend vagy kihagyás.');
+
+    setStatus('Videó feltöltése (' + (mainBlob.size / 1048576).toFixed(1) + ' MB)…', 0);
+    const mainID = await uploadVideo(mainBlob, req.main, setProgress);
+
+    setStatus('Thumbnail beállítása…', null);
+    try {
+      const jpeg = await thumbnailJPEG(img);
+      if (jpeg) await setThumbnail(mainID, jpeg);
+    } catch (e) {
+      addWarning('Thumbnail nem lett beállítva: ' + e.message + ' Egyedi thumbnailhez a csatornát telefonszámmal hitelesíteni kell (youtube.com/verify).');
+      allOk = false;
+    }
+
+    if (req.playlistID) {
+      setStatus('Hozzáadás a lejátszási listához…', null);
+      try { await addToPlaylist(req.playlistID, mainID); }
+      catch (e) { addWarning('Lejátszási lista: ' + e.message); allOk = false; }
+    }
+
+    const r1 = await verify(mainID, req.main, 'Videó', false);
+    addResult(r1); allOk = allOk && r1.ok;
+
+    if (req.short) {
+      const len = Math.min(req.shortLength, buffer.duration);
+      const start = Math.max(0, Math.min(req.shortStart, buffer.duration - len));
+      hiddenDuringRender = false;
+      setStatus('Short renderelése (' + fmt(len) + ')…', 0);
+      const shortBlob = await renderVideo({ ac, buffer, img, W: 1080, H: 1920, start, duration: len, onProgress: setProgress });
+      if (hiddenDuringRender) addWarning('A Short renderelése közben elhagytad az appot.');
+      setStatus('Short feltöltése…', 0);
+      const shortID = await uploadVideo(shortBlob, req.short, setProgress);
+      const r2 = await verify(shortID, req.short, 'Short', true);
+      addResult(r2); allOk = allOk && r2.ok;
+    }
+    setStatus(allOk ? 'Kész ✅' : 'Kész – nézd meg a ⚠️ sorokat', null);
+  } catch (e) {
+    setStatus('Megszakadt', null);
+    $('runErr').hidden = false;
+    $('runErr').textContent = e && e.message ? e.message : String(e);
+  } finally {
+    running = false;
+    try { ac.close(); } catch (e) {}
+    try { if (wakeLock) await wakeLock.release(); } catch (e) {}
+    wakeLock = null;
+    $('liveBox').replaceChildren();
+    renderAuth();
+  }
+}
+
+// ---------- Settings sheet ----------
+function openSettings() {
+  $('s_clientID').value = S.clientID;
+  $('s_origin').textContent = location.origin;
+  $('s_redirect').textContent = redirectURI();
+  $('s_title').value = S.title;
+  $('s_shortTitle').value = S.shortTitle;
+  $('s_description').value = S.description;
+  $('s_tags').value = S.tags;
+  renderPlaylistSelect([]);
+  $('settings').hidden = false;
+  document.body.style.overflow = 'hidden';
+  if (getAuth()) loadPlaylists();
+}
+function closeSettings() {
+  $('settings').hidden = true;
+  document.body.style.overflow = '';
+  renderPreview(); renderAuth();
+}
+function renderPlaylistSelect(list) {
+  const sel = $('s_playlist');
+  sel.replaceChildren();
+  const add = (v, t) => { const o = document.createElement('option'); o.value = v; o.textContent = t; sel.appendChild(o); };
+  add('', 'Nincs');
+  if (S.playlistID && !list.some(p => p.id === S.playlistID)) add(S.playlistID, S.playlistTitle || S.playlistID);
+  for (const p of list) add(p.id, p.title);
+  sel.value = S.playlistID;
+}
+async function loadPlaylists() {
+  $('s_playlistErr').hidden = true;
+  $('s_loadPlaylists').textContent = 'Betöltés…';
+  try {
+    renderPlaylistSelect(await playlists());
+  } catch (e) {
+    $('s_playlistErr').hidden = false; $('s_playlistErr').textContent = e.message;
+  }
+  $('s_loadPlaylists').textContent = 'Listák frissítése';
+}
+
+// ---------- Wiring ----------
+function wire() {
+  $('openSettings').onclick = openSettings;
+  $('closeSettings').onclick = closeSettings;
+  $('loginBtn').onclick = login;
+  $('s_login').onclick = login;
+  $('s_logout').onclick = () => { logout(); renderPlaylistSelect([]); };
+  $('s_loadPlaylists').onclick = () => { if (getAuth()) loadPlaylists(); };
+  $('s_playlist').onchange = e => {
+    S.playlistID = e.target.value;
+    S.playlistTitle = e.target.value ? e.target.selectedOptions[0].textContent : '';
+    saveSettings();
+  };
+  const bindSetting = (id, key) => { $(id).addEventListener('input', e => { S[key] = e.target.value; saveSettings(); }); };
+  bindSetting('s_clientID', 'clientID');
+  bindSetting('s_title', 'title');
+  bindSetting('s_shortTitle', 'shortTitle');
+  bindSetting('s_description', 'description');
+  bindSetting('s_tags', 'tags');
+  $('s_reset').onclick = () => {
+    if (!confirm('Visszaállítod az eredeti sablonokat?')) return;
+    Object.assign(S, { title: DEFAULTS.title, shortTitle: DEFAULTS.shortTitle, description: DEFAULTS.description, tags: DEFAULTS.tags });
+    saveSettings(); openSettings();
+  };
+  document.querySelectorAll('[data-copy]').forEach(b => {
+    b.onclick = async () => {
+      try { await navigator.clipboard.writeText($(b.dataset.copy).textContent); b.textContent = 'Másolva'; }
+      catch (e) { b.textContent = 'Nem sikerült'; }
+      setTimeout(() => { b.textContent = 'Másolás'; }, 1500);
+    };
+  });
+
+  $('audioInput').onchange = e => { const f = e.target.files[0]; if (f) setAudio(new Blob([f], { type: f.type }), f.name, true); e.target.value = ''; };
+  $('imageInput').onchange = e => { const f = e.target.files[0]; if (f) setImage(new Blob([f], { type: f.type }), true); e.target.value = ''; };
+
+  for (const f of fields) $('f_' + f).addEventListener('input', () => { saveDraftFields(); renderPreview(); updateUploadState(); });
+  $('privacy').onchange = e => { S.privacy = e.target.value; saveSettings(); };
+  for (const id of ['schedule', 'publishAt', 'makeShort', 'shortLength', 'shortStart']) {
+    $(id).addEventListener('input', () => { renderShortControls(); saveDraftFields(); renderPreview(); });
+    $(id).addEventListener('change', () => { renderShortControls(); saveDraftFields(); });
+  }
+  $('uploadBtn').onclick = startUpload;
+  document.addEventListener('visibilitychange', () => { if (document.hidden && running) hiddenDuringRender = true; });
+  window.addEventListener('beforeunload', e => { if (running) { e.preventDefault(); e.returnValue = ''; } });
+}
+
+async function restoreDraft() {
+  const d = safeJSON(lsGet('bd.draft')) || {};
+  for (const f of fields) if (d[f]) $('f_' + f).value = d[f];
+  if (!$('f_genre').value) $('f_genre').value = S.genre;
+  $('privacy').value = S.privacy;
+  $('schedule').checked = !!d.schedule;
+  const soon = new Date(Date.now() + 3600000); soon.setMinutes(0, 0, 0);
+  $('publishAt').value = d.publishAt || localInputValue(soon);
+  $('publishAt').min = localInputValue(new Date());
+  $('makeShort').checked = !!d.makeShort;
+  if (d.shortLength) $('shortLength').value = d.shortLength;
+  try {
+    const a = await idb.get('audio');
+    if (a && a.blob) await setAudio(a.blob, a.name || 'beat', false);
+    const im = await idb.get('image');
+    if (im) await setImage(im, false);
+  } catch (e) {}
+  if (d.shortStart) $('shortStart').value = d.shortStart;
+  renderShortControls();
+}
+
+handleRedirect();
+wire();
+restoreDraft().then(() => { renderPreview(); renderAuth(); });
+renderPreview();
+renderAuth();
+</script>
+</body>
+</html>
